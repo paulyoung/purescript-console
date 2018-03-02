@@ -1,25 +1,29 @@
-// Control.Monad.Eff.Console
-
-public func log(_ s: Any) -> () -> () {
-    return { _ in
-        return print("LOG:", s)
+public extension Control.Monad.Eff.Console._Foreign {
+    public static func log(_ s: String) -> () -> Data_Unit.Unit {
+        return {
+            print(s)
+            return Data_Unit.unit
+        }
     }
-}
 
-public func warn(_ s: Any) -> () -> () {
-    return { _ in
-        return print("WARN:", s)
+    public static func warn(_ s: String) -> () -> Data_Unit.Unit {
+        return {
+            print("WARNING:", s)
+            return Data_Unit.unit
+        }
     }
-}
 
-public func error(_ s: Any) -> () -> () {
-    return { _ in
-        return print("ERROR:", s)
+    public static func error(_ s: String) -> () -> Data_Unit.Unit {
+        return {
+            print("ERROR:", s)
+            return Data_Unit.unit
+        }
     }
-}
 
-public func info(_ s: Any) -> () -> () {
-    return { _ in
-        return print("INFO:", s)
+    public static func info(_ s: String) -> () -> Data_Unit.Unit {
+        return {
+            print("INFO:", s)
+            return Data_Unit.unit
+        }
     }
 }
